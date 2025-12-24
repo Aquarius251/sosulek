@@ -759,7 +759,8 @@
 
   function showFinish(){
     document.getElementById('gameCard').innerHTML = `
-      <div class="cardTop">
+   
+      <div class="cardTop" style="display:flex !important;">
         <div>
           <div class="levelTitle">🎅 Hotovo!</div>
           <div class="hint">Vyřešil(a) jsi všech 5 levelů. Krásné Vánoce! 🎄</div>
@@ -770,27 +771,23 @@
         <div class="card" style="box-shadow:none; border-radius:18px; background:rgba(0,0,0,.10); border:1px solid rgba(255,255,255,.12)">
           <div style="padding:14px">
             <div style="font-weight:900; letter-spacing:.3px; margin-bottom:6px">📄 Stáhnout PDF</div>
-            <div style="color:var(--muted); font-size:13px; line-height:1.4">
-              Zde bude odkaz na PDF (doplníte později). Odkaz pak půjde jednoduše sdílet do Messengeru / WhatsApp.
-            </div>
-            <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
+                     <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
               <a id="pdfLink" href="#" style="flex:1; min-width:200px; text-decoration:none">
                 <button style="width:100%">⬇️ Stáhnout PDF</button>
               </a>
               <button class="secondary" id="resetBtn" style="flex:1; min-width:160px">🔁 Hrát znovu</button>
             </div>
-            <div style="margin-top:10px; color:rgba(246,255,248,.85); font-size:12px">
-              Tip: Jakmile doplníte odkaz, stačí upravit proměnnou <b>PDF_URL</b> v kódu.
-            </div>
+            
           </div>
         </div>
       </div>
       <div class="footer">🎁 Díky za hru!</div>
+      
     `;
 
     const PDF_URL = "#"; // TODO: sem doplníte finální URL na PDF
     const a = document.getElementById('pdfLink');
-    a.href = PDF_URL;
+    a.href = "https://drive.google.com/drive/folders/1Bhlh6bVfRE-ToyG51njDMqImO0YdmZ42?usp=sharing";
 
     document.getElementById('resetBtn').addEventListener('click', ()=>{
       clearProgress();
