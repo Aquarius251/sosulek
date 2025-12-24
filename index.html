@@ -3,31 +3,25 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vánoční překvapení – Tajenka</title>
+  <title>Krásné Vánoce, milý Sosůlku 🎄</title>
   <meta name="theme-color" content="#0b2e1b" />
   <style>
     :root{
       --bg1:#071b12;
       --bg2:#0b2e1b;
       --card:#0e3a22cc;
-      --card2:#0e3a22;
       --text:#f6fff8;
       --muted:#cfe9d8;
       --accent:#ffcc66;
-      --good:#38d67a;
-      --bad:#ff5d5d;
-      --line:#1c6b3d;
       --shadow: 0 12px 35px rgba(0,0,0,.35);
-      --radius: 18px;
-      --radius2: 26px;
-      --cell: 32px;
+      --radius: 22px;
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      font-family: SF pro, -apple-system, Inter, Segoe UI, ui-sans-serif, system-ui,  Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: SF pro, -apple-system, Inter, Segoe UI, ui-sans-serif, system-ui, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color:var(--text);
       background:
         radial-gradient(1200px 700px at 10% 0%, #145c37 0%, transparent 65%),
@@ -55,821 +49,162 @@
     .wrap{
       position:relative;
       z-index:1;
-      max-width: 520px;
+      max-width: 640px;
       margin: 0 auto;
-      padding: 8px 0px 0px;
-    }
-
-    header{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:12px;
-      padding: 10px 0px 16px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:10px;
-    }
-    .logo{
-      font-size: 40px;
-    }
-   
-      
-
-    h1{margin:0; font-size:16px; line-height:1.2}
-    .sub{margin:0; font-size:12px; color:var(--muted); opacity:.95}
-
-    .pill{
-      background: rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.14);
-      padding:8px 10px;
-      border-radius: 999px;
-      font-size:12px;
-      color:var(--muted);
-      display:flex; align-items:center; gap:8px;
-      margin-right:12px;
+      padding: 24px 14px 40px;
+      min-height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
 
     .card{
+      width:100%;
       background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
       border: 1px solid rgba(255,255,255,.14);
       box-shadow: var(--shadow);
+      border-radius: var(--radius);
       overflow:hidden;
-    }
-    .cardTop{
-      display:none!important;
-      padding: 14px 14px 10px;
-      display:flex; align-items:flex-start; justify-content:space-between;
-      gap:10px;
-      background: linear-gradient(180deg, rgba(255,255,255,.08), transparent);
-    }
-    .levelTitle{font-weight:700; letter-spacing:.2px}
-    .hint{font-size:12px; color:var(--muted)}
-
-    .board{
-      padding: 10px 12px 14px;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
+      padding: 24px 18px 20px;
     }
 
-    .row{
+    .topRow{
       display:flex;
-      gap:10px;
       align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom: 12px;
     }
 
-    .flag{
-      width: 38px;
-      flex: 0 0 38px;
-      display:grid;
-      place-items:center;
-      filter: drop-shadow(0 6px 10px rgba(0,0,0,.25));
-    }
-    .flag svg{width:34px;height:24px;border-radius:6px;overflow:hidden;border:1px solid rgba(255,255,255,.18)}
-
-    .cell.key{
-      background: rgba(255, 204, 102, .28) !important;
-      border-color: rgba(255, 204, 102, .75) !important;
-      box-shadow: 0 0 0 3px rgba(255,204,102,.12) inset, 0 8px 16px rgba(0,0,0,.18);
-    }
-    .cell.key.solved{
-      background: rgba(56, 214, 122, .22) !important;
-      border-color: rgba(56,214,122,.75) !important;
-      box-shadow: 0 0 0 3px rgba(56,214,122,.12) inset, 0 8px 16px rgba(0,0,0,.18);
-    }
-
-
-    .cells{
-      display:flex;
-      gap:4px;
-      flex-wrap:nowrap;
-      align-items:center;
-      overflow-x:auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
-    .cells::-webkit-scrollbar{display:none}
-
-    .cell{
-      width: var(--cell);
-      height: var(--cell);
-      flex: 0 0 var(--cell);
-      border-radius: 16px;
-      background: rgba(0,0,0,.18);
-      border:1px solid rgba(255,255,255,.16);
-      display:grid;
-      place-items:center;
-      position:relative;
-    }
-
-    input.letter{
-      width: 100%;
-      height: 100%;
-      border:0;
-      background: transparent;
-      outline: none;
-      color: var(--text);
-      text-transform: uppercase;
-      font-weight: 800;
-      font-size: 16px;
-      text-align: center;
-      letter-spacing: 0.5px;
-      caret-color: transparent;
-    }
-
-    .cell.space{
-      background: transparent;
-      border-color: transparent;
-      width: 14px;
-    }
-
-    .rowStatus{
-      margin-left:auto;
+    .badge{
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.16);
+      padding: 8px 10px;
+      border-radius: 999px;
       font-size: 12px;
       color: var(--muted);
-      opacity:.9;
-      width: 8px;
-      text-align:right;
+      white-space:nowrap;
     }
 
-    .ok{color: var(--good); font-weight:800}
-    .no{color: var(--bad); font-weight:800}
+    .logo{
+      font-size: 44px;
+      filter: drop-shadow(0 8px 18px rgba(0,0,0,.35));
+      line-height: 1;
+    }
 
-    .controls{
+    h1{
+      margin: 24px 0px 16px;
+      font-size: 40px;
+      letter-spacing: .2px;
+      line-height: 1.05;
+      font-weight: 950;
+      text-align: center;
+    }
+
+    .desc{
+      margin:24px 0px 24px;
+      color: rgba(246,255,248,.92);
+      font-size: 15px;
+      line-height: 1.55;
+      opacity: .98;
+      text-align:center;
+    }
+
+    .desc strong{
+      color: var(--accent);
+    }
+
+    .divider{
+      height:1px;
+      background: rgba(255,255,255,.12);
+      margin: 18px 0 16px;
+    }
+
+    .ctaWrap{
       display:flex;
-      gap:10px;
-      padding: 12px 14px 14px;
-      flex-direction: column;
+      flex-direction:column;
+      gap:12px;
+      margin-top: 8px;
+    }
+
+    a.cta{
+      display:block;
+      text-decoration:none;
+      width:100%;
     }
 
     button{
+      width:100%;
       border:0;
-      border-radius: 16px;
-      padding: 12px 12px;
-      font-weight: 800;
+      border-radius: 18px;
+      padding: 14px 14px;
+      font-weight: 950;
+      font-size: 16px;
       color: #0b2e1b;
       background: linear-gradient(180deg, #ffe3a3, #ffcc66);
-      box-shadow: 0 10px 22px rgba(0,0,0,.28);
-      flex:1;
-      min-width: 140px;
-    }
-    button.secondary{
-      background: rgba(255,255,255,.10);
-      color: var(--text);
-      border:1px solid rgba(255,255,255,.18);
-      box-shadow: none;
-    }
-    button:disabled{
-      opacity:0.0;
-      filter: grayscale(.25);
+      box-shadow: 0 12px 24px rgba(0,0,0,.28);
+      cursor:pointer;
+      transition: transform .12s ease, filter .12s ease;
     }
 
-    .secretBox{
-      padding: 14px;
-      border-top: 1px solid rgba(255,255,255,.12);
-      background: linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.18));
+    button:hover{
+      transform: translateY(-1px);
+      filter: brightness(1.03);
+    }
+    button:active{
+      transform: translateY(1px);
     }
 
-    .secretTitle{font-weight:900; letter-spacing:.3px; margin:0 0 8px}
-    .secretGrid{
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-      align-items:center;
+    .note{
+      font-size: 12px;
+      color: rgba(207,233,216,.95);
+      opacity: .92;
+      text-align:center;
     }
-
-    .secretChar{
-      width: 34px; height: 40px;
-      border-radius: 12px;
-      background: rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.14);
-      display:grid; place-items:center;
-      font-weight: 900;
-      letter-spacing:.4px;
-    }
-
-    .toast{
-      position: fixed;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: 18px;
-      background: rgba(0,0,0,.72);
-      border:1px solid rgba(255,255,255,.18);
-      padding: 10px 12px;
-      border-radius: 999px;
-      font-size: 13px;
-      color: var(--text);
-      box-shadow: var(--shadow);
-      z-index: 5;
-      opacity:0;
-      pointer-events:none;
-      transition: opacity .18s ease, transform .18s ease;
-    }
-    .toast.show{opacity:1; transform: translateX(-50%) translateY(-4px)}
 
     .footer{
-      margin-top: 14px;
-      padding: 12px 10px 0;
-      color: rgba(246,255,248,.85);
-      font-size: 12px;
+      margin-top: 12px;
       text-align:center;
-      opacity:.9;
+      font-size: 12px;
+      color: rgba(246,255,248,.72);
     }
-    a{color:var(--accent)}
 
-    /* small screens */
-    @media (max-width: 360px){
-      :root{ --cell: 30px; }
-      .flag{font-size:22px}
-      button{min-width: 120px;}
+    @media (max-width: 420px){
+      h1{font-size: 34px;}
+      .logo{font-size: 40px;}
     }
   </style>
 </head>
+
 <body>
   <div class="snow" aria-hidden="true"></div>
 
   <div class="wrap">
-    <header>
-      <div class="brand">
-        <div class="logo" aria-hidden="true"><span>🎄</span></div>
-        <div>
-          <h1>Vánoční překvapení</h1>
-          <p class="sub">Hádej státy dle vlajek (anglicky) a&nbsp;odhal umístění dárku</p>
-        </div>
-      </div>
-      <div class="pill" id="progressPill">Level <b id="levelNo">1</b>/&nbsp;5</div>
-    </header>
-
-    <main class="card" id="gameCard">
-      <div class="cardTop">
-        <div>
-          <div class="levelTitle" id="levelTitle">Level 1</div>
-        
-        </div>
-        <div class="pill">⏳ <span id="solvedCount">0</span>/<span id="totalRows">0</span></div>
+    <main class="card">
+      <div class="topRow">
+        <div class="logo" aria-hidden="true">🎄</div>
+        <div class="badge">🎁 5 růžových dárků</div>
       </div>
 
-      <section class="board" id="board"></section>
+      <h1>Krásné Vánoce, milý Sosůlku</h1>
 
-      <section class="secretBox" id="secretBox">
-        <p class="secretTitle">Tajenka</p>
-        <div class="secretGrid" id="secretGrid"></div>
-        <div class="hint" style="margin-top:10px" id="secretHint">Tajenka se odkryje po vyřešení všech řádků.</div>
-      </section>
+      <p class="desc">
+        V bytě je ukryto <strong>5 růžových dárků</strong>.  
+        Vylušti&nbsp;tajenky a objev jejich lokace.  
+        <br><br>
+        <strong>Od tvého největšího LEGA</strong> už&nbsp;tě&nbsp;dělí&nbsp;jen&nbsp;chvilinka!
+      </p>
 
      
+      <div class="ctaWrap">
+        <a class="cta" href="./app.html">
+          <button>🎯 Začít hru</button>
+        </a>
+        <div class="note">Tip: hádej státy podle vlajek (anglicky).</div>
+      </div>
+
+      <div class="footer">✨ Hodně štěstí!</div>
     </main>
-
-    <div class="footer" id="footer"></div>
   </div>
- <section class="controls">
-        <button class="secondary" id="checkBtn">✅ Zkontrolovat</button>
-        <button id="revealBtn" disabled>🔀 Přerovnat tajenku</button>
-        <button id="nextBtn" disabled>Další level ›</button>
-      </section>
-  <div class="toast" id="toast"></div>
-
-<script>
-  // =========================
-  // DATA (můžeš později upravit)
-  // =========================
-
-  // Každý řádek má:
-  // - flag: kód vlajky pro SVG (např. "NO")
-  // - answer: správná odpověď
-  // - keyIndex: index písmena (bez mezer) které patří do tajenky a bude zvýrazněné
-
-  const LEVELS = [
-  {
-    name: "Level 1",
-    secret: "NYHCUK",
-    rows: [
-      { flag: "IR", answer: "IRAN", keyIndex: 3 },
-      { flag: "YE", answer: "YEMEN", keyIndex: 0 },
-      { flag: "BS", answer: "BAHAMAS", keyIndex: 2 },
-      { flag: "FR", answer: "FRANCE", keyIndex: 4 },
-      { flag: "KW", answer: "KUWAIT", keyIndex: 1 },
-      { flag: "KR", answer: "KOREA", keyIndex: 0 }
-    ]
-  },
-  {
-    name: "Level 2",
-    secret: "ANLEPUOK",
-    rows: [
-      { flag: "AM", answer: "ARMENIA", keyIndex: 0 },
-      { flag: "DM", answer: "DOMINICA", keyIndex: 4 },
-      { flag: "FI", answer: "FINLAND", keyIndex: 3 },
-      { flag: "GG", answer: "GUERNSEY", keyIndex: 2 },
-      { flag: "PE", answer: "PERU", keyIndex: 0 },
-      { flag: "TN", answer: "TUNISIA", keyIndex: 1 },
-      { flag: "OM", answer: "OMAN", keyIndex: 0 },
-      { flag: "HK", answer: "HONGKONG", keyIndex: 4 }
-    ]
-  },
-  {
-    name: "Level 3",
-    secret: "LETSOP",
-    rows: [
-      { flag: "SN", answer: "SENEGAL", keyIndex: 6 },
-      { flag: "CL", answer: "CHILE", keyIndex: 4 },
-      { flag: "TZ", answer: "TANZANIA", keyIndex: 0 },
-      { flag: "RU", answer: "RUSSIA", keyIndex: 3 },
-      { flag: "NO", answer: "NORWAY", keyIndex: 1 },
-      { flag: "JP", answer: "JAPAN", keyIndex: 2 },
-    ]
-  },
-  {
-    name: "Level 4",
-    secret: "NOKLAB",
-    rows: [
-      { flag: "KE", answer: "KENYA", keyIndex: 2 },
-      { flag: "XK", answer: "KOSOVO", keyIndex: 3 },
-      { flag: "DK", answer: "DENMARK", keyIndex: 6 },
-      { flag: "LA", answer: "LAOS", keyIndex: 0 },
-      { flag: "RS", answer: "SERBIA", keyIndex: 5 },
-      { flag: "BE", answer: "BELGIUM", keyIndex: 0 }
-    ]
-  },
-  {
-    name: "Level 5",
-    secret: "AROMOK",
-    rows: [
-      { flag: "VN", answer: "VIETNAM", keyIndex: 5 },
-      { flag: "SY", answer: "SYRIA", keyIndex: 2 },
-      { flag: "TO", answer: "TONGA", keyIndex: 1 },
-      { flag: "SO", answer: "SOMALIA", keyIndex: 2 },
-      { flag: "MD", answer: "MOLDOVA", keyIndex: 1 },
-      { flag: "PK", answer: "PAKISTAN", keyIndex: 2 }
-    ]
-  }
-];
-
-
-
-
-  // =========================
-  // STATE
-  // =========================
-  let levelIndex = 0;
-  let solvedRows = new Set();
-  let reversedRevealed = false;
-
-  const els = {
-    board: document.getElementById('board'),
-    levelNo: document.getElementById('levelNo'),
-    levelTitle: document.getElementById('levelTitle'),
-    solvedCount: document.getElementById('solvedCount'),
-    totalRows: document.getElementById('totalRows'),
-    secretGrid: document.getElementById('secretGrid'),
-    secretHint: document.getElementById('secretHint'),
-    checkBtn: document.getElementById('checkBtn'),
-    revealBtn: document.getElementById('revealBtn'),
-    nextBtn: document.getElementById('nextBtn'),
-    footer: document.getElementById('footer'),
-    toast: document.getElementById('toast'),
-    progressPill: document.getElementById('progressPill'),
-  };
-
-  // =========================
-  // HELPERS
-  // =========================
-  const normalize = (s) => (s||"")
-    .toUpperCase()
-    .normalize('NFD')
-    .replace(/\p{Diacritic}/gu,'')
-    .replace(/[^A-Z ]/g,'')
-    .replace(/\s+/g,' ')
-    .trim();
-
-  function toast(msg){
-    els.toast.textContent = msg;
-    els.toast.classList.add('show');
-    clearTimeout(toast._t);
-    toast._t = setTimeout(()=>els.toast.classList.remove('show'), 1800);
-  }
-
-  function saveProgress(){
-    const payload = {
-      levelIndex,
-      solved: Array.from(solvedRows),
-      reversedRevealed,
-      inputs: grabAllInputs()
-    };
-    localStorage.setItem('xmas_tajenka_progress', JSON.stringify(payload));
-  }
-
-  function loadProgress(){
-    try{
-      const raw = localStorage.getItem('xmas_tajenka_progress');
-      if(!raw) return;
-      const p = JSON.parse(raw);
-      if(typeof p.levelIndex === 'number') levelIndex = Math.max(0, Math.min(LEVELS.length-1, p.levelIndex));
-      solvedRows = new Set(Array.isArray(p.solved) ? p.solved : []);
-      reversedRevealed = !!p.reversedRevealed;
-    }catch(e){}
-  }
-
-  function clearProgress(){
-    localStorage.removeItem('xmas_tajenka_progress');
-  }
-
-  function grabAllInputs(){
-    const data = {};
-    document.querySelectorAll('[data-row]').forEach(rowEl=>{
-      const r = rowEl.getAttribute('data-row');
-      const letters = Array.from(rowEl.querySelectorAll('input.letter')).map(i=>i.value||"");
-      data[r] = letters;
-    });
-    return data;
-  }
-
-  function restoreInputs(saved){
-    if(!saved) return;
-    Object.entries(saved).forEach(([r, letters])=>{
-      const rowEl = document.querySelector(`[data-row="${r}"]`);
-      if(!rowEl) return;
-      const ins = Array.from(rowEl.querySelectorAll('input.letter'));
-      ins.forEach((i, idx)=>{ if(letters[idx] != null) i.value = letters[idx]; });
-    });
-  }
-
-  function isLevelSolved(){
-    const level = LEVELS[levelIndex];
-    return solvedRows.size >= level.rows.length;
-  }
-
-  function computeSecretString(reversed=true){
-    const level = LEVELS[levelIndex];
-    const secretLen = level.secret.length;
-    let out = [];
-    for(let i=0; i<secretLen; i++){
-      const row = level.rows[i];
-      if(!row) { out.push('•'); continue; }
-      const ans = normalize(row.answer).replace(/ /g,'');
-      const idx = Number.isFinite(row.keyIndex) ? row.keyIndex : i;
-      const ch = ans[idx] || '•';
-      out.push(ch);
-    }
-    const str = out.join('');
-    return reversed ? str : str.split('').reverse().join('');
-  }
-
-  function renderSecret(reordered=false){
-    const level = LEVELS[levelIndex];
-
-    if(!isLevelSolved()){
-      els.secretGrid.innerHTML = '';
-      els.secretHint.textContent = 'Tajenka se odkryje po vyřešení všech řádků.';
-      return;
-    }
-
-    els.secretGrid.innerHTML = '';
-    const raw = computeSecretString(true);
-    const reorderedStr = raw.split('').reverse().join('');
-    const display = reordered ? reorderedStr : raw;
-
-    display.split('').forEach(ch=>{
-      const d = document.createElement('div');
-      d.className = 'secretChar';
-      d.textContent = ch;
-      els.secretGrid.appendChild(d);
-    });
-
-    els.secretHint.textContent = reordered
-      ? `🎉 Tajenka je hotová!`
-      : `✅ Tajenka je odemčená. Pokud chceš, můžeš ji přerovnat.`;
-  }
-
-  // =========================
-  // RENDER LEVEL
-  // =========================
-  function renderLevel(){
-    const level = LEVELS[levelIndex];
-    els.levelNo.textContent = String(levelIndex+1);
-    els.levelTitle.textContent = level.name;
-    els.totalRows.textContent = String(level.rows.length);
-
-    // reset ui state
-    els.board.innerHTML = '';
-
-    level.rows.forEach((r, idx)=>{
-      const rowEl = document.createElement('div');
-      rowEl.className = 'row';
-      rowEl.setAttribute('data-row', String(idx));
-
-      const flag = document.createElement('div');
-      flag.className = 'flag';
-      flag.innerHTML = getFlagImg(r.flag);
-
-      const cells = document.createElement('div');
-      cells.className = 'cells';
-
-      const answer = normalize(r.answer);
-      const pattern = r.answer; // keep spaces
-
-      // create input boxes for letters; keep space placeholders
-      let inputIndex = 0;
-      for(const ch of pattern){
-        if(ch === ' '){
-          const sp = document.createElement('div');
-          sp.className = 'cell space';
-          cells.appendChild(sp);
-        } else {
-          const c = document.createElement('div');
-          c.className = 'cell';
-
-          const keyIdx = Number.isFinite(r.keyIndex) ? r.keyIndex : idx;
-          if(inputIndex === keyIdx) c.classList.add('key');
-
-          const input = document.createElement('input');
-          input.className = 'letter';
-          input.maxLength = 1;
-          input.inputMode = 'text';
-          input.autocomplete = 'off';
-          input.autocapitalize = 'characters';
-          input.spellcheck = false;
-          input.setAttribute('data-row', String(idx));
-          input.setAttribute('data-col', String(inputIndex));
-
-          input.addEventListener('input', (e)=>{
-            const v = normalize(e.target.value).replace(/ /g,'');
-            e.target.value = (v[0]||'');
-            focusNext(input);
-            saveProgress();
-          });
-          input.addEventListener('keydown', (e)=>{
-            if(e.key === 'Backspace' && !e.target.value){
-              focusPrev(input);
-            }
-            if(e.key === 'Enter'){
-              e.preventDefault();
-              checkAll();
-            }
-          });
-
-          c.appendChild(input);
-          cells.appendChild(c);
-          inputIndex++;
-        }
-      }
-
-      const status = document.createElement('div');
-      status.className = 'rowStatus';
-      status.id = `status-${idx}`;
-      status.textContent = '…';
-
-      rowEl.appendChild(flag);
-      rowEl.appendChild(cells);
-      rowEl.appendChild(status);
-
-      els.board.appendChild(rowEl);
-    });
-
-    // restore statuses
-    solvedRows.forEach((idx)=> setRowStatus(idx, true));
-    updateSolvedCount();
-
-    // secret
-    renderSecret(reversedRevealed);
-
-    // buttons
-    els.revealBtn.disabled = !isLevelSolved();
-    els.nextBtn.disabled = !(isLevelSolved() && reversedRevealed);
-
-    // footer
-  
-
-    // restore inputs from storage if available
-    try{
-      const raw = localStorage.getItem('xmas_tajenka_progress');
-      if(raw){
-        const p = JSON.parse(raw);
-        if(p && p.levelIndex === levelIndex){
-          restoreInputs(p.inputs);
-        }
-      }
-    }catch(e){}
-
-    // focus first input
-    const first = document.querySelector('input.letter');
-    if(first) first.focus();
-  }
-
-  function getFlagImg(code){
-    const cc = (code || 'xx').toLowerCase();
-    return `<img src="https://flagcdn.com/w40/${cc}.png"
-                alt="${cc} flag"
-                loading="lazy"
-                style="width:34px;height:24px;border-radius:6px;border:1px solid rgba(255,255,255,.18);object-fit:cover;">`;
-  }
-
-  function focusNext(input){
-    const row = input.getAttribute('data-row');
-    const col = Number(input.getAttribute('data-col'));
-    const next = document.querySelector(`input.letter[data-row="${row}"][data-col="${col+1}"]`);
-    if(next) next.focus();
-  }
-  function focusPrev(input){
-    const row = input.getAttribute('data-row');
-    const col = Number(input.getAttribute('data-col'));
-    const prev = document.querySelector(`input.letter[data-row="${row}"][data-col="${col-1}"]`);
-    if(prev) prev.focus();
-  }
-
-  function setRowStatus(idx, ok){
-    const st = document.getElementById(`status-${idx}`);
-    if(!st) return;
-    st.classList.toggle('ok', ok);
-    st.classList.toggle('no', !ok);
-    st.textContent = ok ? '✅' : '❌';
-  }
-
-  function updateSolvedCount(){
-    const level = LEVELS[levelIndex];
-    els.solvedCount.textContent = String(Math.min(solvedRows.size, level.rows.length));
-  }
-
-  // =========================
-  // CHECKING
-  // =========================
-  function readRowGuess(idx){
-    const rowEl = document.querySelector(`[data-row="${idx}"]`);
-    if(!rowEl) return '';
-    const letters = Array.from(rowEl.querySelectorAll('input.letter')).map(i => (i.value||''));
-    const joined = letters.join('');
-    // we compare ignoring spaces, but answers can contain spaces
-    return normalize(joined);
-  }
-
-  function checkRow(idx){
-    const level = LEVELS[levelIndex];
-    const ans = normalize(level.rows[idx].answer).replace(/ /g,'');
-    const guess = readRowGuess(idx).replace(/ /g,'');
-
-    const ok = ans === guess && guess.length === ans.length;
-    const rowEl = document.querySelector(`[data-row="${idx}"]`);
-    if(rowEl){
-      const keyIdx = Number.isFinite(level.rows[idx].keyIndex) ? level.rows[idx].keyIndex : idx;
-      const keyInput = rowEl.querySelector(`input.letter[data-col="${keyIdx}"]`);
-      const keyCell = keyInput ? keyInput.closest('.cell') : null;
-      if(keyCell){
-        keyCell.classList.toggle('solved', ok);
-      }
-    }
-
-    if(ok){
-      solvedRows.add(String(idx));
-      setRowStatus(idx, true);
-    } else {
-      solvedRows.delete(String(idx));
-      setRowStatus(idx, false);
-    }
-  }
-
-  function checkAll(){
-    const level = LEVELS[levelIndex];
-    for(let i=0;i<level.rows.length;i++) checkRow(i);
-    updateSolvedCount();
-
-    if(isLevelSolved()){
-      els.revealBtn.disabled = false;
-      toast('🎉 Všechny řádky jsou správně!');
-    } else {
-      toast('Zkontrolováno. Něco nesedí 🙂');
-    }
-
-    renderSecret(reversedRevealed);
-    saveProgress();
-  }
-
-  // =========================
-  // NAVIGATION
-  // =========================
-  function goNextLevel(){
-    if(levelIndex < LEVELS.length-1){
-      levelIndex++;
-      solvedRows = new Set();
-      reversedRevealed = false;
-      saveProgress();
-      renderLevel();
-      toast('➡️ Další level');
-    } else {
-      showFinish();
-    }
-  }
-
-  function showFinish(){
-    document.getElementById('gameCard').innerHTML = `
-   
-      <div class="cardTop" style="display:flex !important;">
-        <div>
-          <div class="levelTitle">🎅 Hotovo!</div>
-          <div class="hint">Vyřešil(a) jsi všech 5 levelů. Krásné Vánoce! 🎄</div>
-        </div>
-        <div class="pill">🏆 5/5</div>
-      </div>
-      <div style="padding:16px 14px 6px">
-        <div class="card" style="box-shadow:none; border-radius:18px; background:rgba(0,0,0,.10); border:1px solid rgba(255,255,255,.12)">
-          <div style="padding:14px">
-            <div style="font-weight:900; letter-spacing:.3px; margin-bottom:6px">📄 Stáhnout PDF</div>
-                     <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
-              <a id="pdfLink" href="#" style="flex:1; min-width:200px; text-decoration:none">
-                <button style="width:100%">⬇️ Stáhnout PDF</button>
-              </a>
-              <button class="secondary" id="resetBtn" style="flex:1; min-width:160px">🔁 Hrát znovu</button>
-            </div>
-            
-          </div>
-        </div>
-      </div>
-      <div class="footer">🎁 Díky za hru!</div>
-      
-    `;
-
-    const PDF_URL = "#"; // TODO: sem doplníte finální URL na PDF
-    const a = document.getElementById('pdfLink');
-    a.href = "https://drive.google.com/drive/folders/1Bhlh6bVfRE-ToyG51njDMqImO0YdmZ42?usp=sharing";
-
-    document.getElementById('resetBtn').addEventListener('click', ()=>{
-      clearProgress();
-      levelIndex = 0;
-      solvedRows = new Set();
-      reversedRevealed = false;
-      location.reload();
-    });
-  }
-
-  // =========================
-  // EVENTS
-  // =========================
-  els.checkBtn.addEventListener('click', checkAll);
-  els.revealBtn.addEventListener('click', ()=>{
-    if(!isLevelSolved()) return;
-    reversedRevealed = true;
-    renderSecret(true);
-    els.nextBtn.disabled = false;
-    saveProgress();
-    toast('🔀 Tajenka přerovnána!');
-  });
-  els.nextBtn.addEventListener('click', ()=>{
-    if(!(isLevelSolved() && reversedRevealed)) return;
-    goNextLevel();
-  });
-
-  // =========================
-  // SVG VLAJKY (jednoduché)
-  // =========================
-  function svgFlagRect(colors){
-    const h = 24, w = 34;
-    const rects = colors.map(p=>{
-      const y = p.y0*h;
-      const hh = (p.y1-p.y0)*h;
-      return `<rect x="0" y="${y}" width="${w}" height="${hh}" fill="${p.c}" />`;
-    }).join('');
-    return `<svg viewBox="0 0 34 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">${rects}</svg>`;
-  }
-
-  function getFlagSVG(code){
-    const C = {
-      NO: svgFlagRect([{c:'#ba0c2f',y0:0,y1:1}]),
-      US: svgFlagRect([{c:'#b22234',y0:0,y1:0.5},{c:'#ffffff',y0:0.5,y1:1}]),
-      NL: svgFlagRect([{c:'#ae1c28',y0:0,y1:0.333},{c:'#ffffff',y0:0.333,y1:0.666},{c:'#21468b',y0:0.666,y1:1}]),
-      CM: svgFlagRect([{c:'#007a5e',y0:0,y1:1}]),
-      UY: svgFlagRect([{c:'#ffffff',y0:0,y1:1}]),
-      KR: svgFlagRect([{c:'#ffffff',y0:0,y1:1}]),
-      AT: svgFlagRect([{c:'#ed2939',y0:0,y1:0.333},{c:'#ffffff',y0:0.333,y1:0.666},{c:'#ed2939',y0:0.666,y1:1}]),
-      DK: svgFlagRect([{c:'#c60c30',y0:0,y1:1}]),
-      PL: svgFlagRect([{c:'#ffffff',y0:0,y1:0.5},{c:'#dc143c',y0:0.5,y1:1}]),
-      GR: svgFlagRect([{c:'#0d5eaf',y0:0,y1:0.5},{c:'#ffffff',y0:0.5,y1:1}]),
-      PE: svgFlagRect([{c:'#d91023',y0:0,y1:0.5},{c:'#ffffff',y0:0.5,y1:1}]),
-      OM: svgFlagRect([{c:'#ffffff',y0:0,y1:0.333},{c:'#d40000',y0:0.333,y1:0.666},{c:'#007a3d',y0:0.666,y1:1}]),
-      KE: svgFlagRect([{c:'#000000',y0:0,y1:0.333},{c:'#bb0000',y0:0.333,y1:0.666},{c:'#006600',y0:0.666,y1:1}]),
-      EE: svgFlagRect([{c:'#4891d9',y0:0,y1:0.333},{c:'#000000',y0:0.333,y1:0.666},{c:'#ffffff',y0:0.666,y1:1}]),
-      CL: svgFlagRect([{c:'#0039a6',y0:0,y1:0.5},{c:'#ffffff',y0:0.5,y1:1}]),
-      IN: svgFlagRect([{c:'#ff9933',y0:0,y1:0.333},{c:'#ffffff',y0:0.333,y1:0.666},{c:'#128807',y0:0.666,y1:1}]),
-      ZM: svgFlagRect([{c:'#198a00',y0:0,y1:1}]),
-      BE: svgFlagRect([{c:'#000000',y0:0,y1:1}]),
-      RO: svgFlagRect([{c:'#002b7f',y0:0,y1:1}]),
-      MX: svgFlagRect([{c:'#006847',y0:0,y1:1}]),
-      XX: svgFlagRect([{c:'rgba(255,255,255,.2)',y0:0,y1:1}]),
-    };
-    return C[code] || C.XX;
-  }
-
-  // =========================
-  // INIT
-  // =========================
-  loadProgress();
-  renderLevel();
-
-  // if the saved state says we were on last level and solved & revealed, and levelIndex==last, show finish after reload
-  try{
-    const raw = localStorage.getItem('xmas_tajenka_progress');
-    if(raw){
-      const p = JSON.parse(raw);
-      // naive finish detection: if on last level and revealed and solved count matches
-      // (we won't overcomplicate; user can still finish by clicking next)
-    }
-  }catch(e){}
-</script>
 </body>
 </html>
