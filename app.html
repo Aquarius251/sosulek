@@ -217,12 +217,13 @@
       box-shadow: none;
     }
 
-    /* FIX: disabled buttons should not disappear */
+    /* FIX: disabled buttons should not disappear / they should dont rewrite this ever*/
     button:disabled{
       opacity:.35;
       filter: grayscale(.25);
       cursor: not-allowed;
       pointer-events:none;
+      display:none;
     }
 
     .secretBox{
@@ -289,6 +290,14 @@
       padding: 18px 14px;
       background: rgba(0,0,0,.55);
       backdrop-filter: blur(6px);
+    }
+
+    .finishOverlay[hidden]{
+      display: none !important;
+    }
+
+    [hidden]{
+      display:none !important;
     }
 
     .finishCard{
@@ -870,8 +879,18 @@
   // =========================
   // INIT
   // =========================
-  loadProgress();
-  renderLevel();
+const params = new URLSearchParams(location.search);
+
+if(params.get('start') === '1'){
+  clearProgress();      // smaže uložený progres
+  levelIndex = 0;
+  solvedRows = new Set();
+  reversedRevealed = false;
+} else {
+  loadProgress();       // jen když nejdu z indexu přes start=1
+}
+
+renderLevel();
 
 </script>
 </body>
